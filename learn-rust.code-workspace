@@ -1,14 +1,13 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-	],
-	"settings": {
-		"workbench.productIconTheme": "material-product-icons",
-		"workbench.iconTheme": "material-icon-theme",
-		"workbench.preferredDarkColorTheme": "GitHub Dark Default",
-		"workbench.colorTheme": "GitHub Dark Default",
-		"material-icon-theme.activeIconPack": "react_redux"
-	}
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.preferredDarkColorTheme": "GitHub Dark Default",
+    "workbench.colorTheme": "GitHub Dark Default",
+    "material-icon-theme.activeIconPack": "react_redux"
+  }
 }
