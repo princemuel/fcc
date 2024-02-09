@@ -14,5 +14,13 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "GitHub Dark Default",
   "workbench.colorTheme": "GitHub Dark Default",
-  "material-icon-theme.activeIconPack": "react_redux"
+  "material-icon-theme.activeIconPack": "react_redux",
+  "rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
+  "rust-analyzer.restartServerOnConfigChange": true,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.diagnostics.useRustcErrorCode": true,
+  "rust-analyzer.inlayHints.typeHints.hideClosureInitialization": true,
+  "rust-analyzer.hover.actions.references.enable": true,
+  "rust-analyzer.completion.fullFunctionSignatures.enable": true,
+  "rust-analyzer.inlayHints.parameterHints.enable": false
 }
