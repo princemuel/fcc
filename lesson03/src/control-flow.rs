@@ -107,9 +107,27 @@
 //         println!("the value is {element}");
 //     }
 // }
-fn main() {
-    for number in (1..4).rev() {
-        println!("the value is {number}");
+// fn main() {
+//     for number in (1..4).rev() {
+//         println!("the value is {number}");
+//     }
+//     println!("LIFTOFF!!!");
+// }
+
+fn control_flow() {
+    let mut x = 0;
+
+    'a: loop {
+        x += 1;
+
+        'b: loop {
+            if x > 10 {
+                continue 'a;
+            } else {
+                break 'b;
+            }
+        }
+
+        break;
     }
-    println!("LIFTOFF!!!");
 }
