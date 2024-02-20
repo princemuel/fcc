@@ -47,12 +47,28 @@
 //     println!("The value of y is: {y}");
 // }
 
-fn main() {
-    let x = plus_one(5);
+// fn main() {
+//     let x = plus_one(5);
 
-    println!("The value of x is: {x}")
+//     println!("The value of x is: {x}")
+// }
+
+// fn plus_one(x: i32) -> i32 {
+//     return x + 1;
+// }
+
+fn main() {
+    let x = {
+        let y = 6;
+        y + 1
+    };
+
+    let y = sum_difference(5, x);
+
+    // println!("sum = {}, difference = {}", y.0, y.1);
+    println!("the sum and difference is {:?}", y); // {:?} is used to print the tuple
 }
 
-fn plus_one(x: i32) -> i32 {
-    return x + 1;
+fn sum_difference(a: i32, b: i32) -> (i32, i32) {
+    (a + b, a - b)
 }
