@@ -18,7 +18,13 @@ fn main() {
             .expect("Failed to read line");
 
         // let guess: u32 = guess.trim().parse().expect("Please enter a number");
-        let guess: u32 = match guess.trim().parse() {
+        // using the annotating syntax
+        // let guess: u32 = match guess.trim().parse() {
+        //     Ok(num) => num,
+        //     Err(_) => continue,
+        // };
+        // using the 'turbofish' syntax
+        let guess = match guess.trim().parse::<i32>() {
             Ok(num) => num,
             Err(_) => continue,
         };
