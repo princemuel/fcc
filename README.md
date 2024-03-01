@@ -50,3 +50,9 @@ RUSTFLAGS="-Z threads=8" cargo +nightly build --release
 
 1. At any given time, you can have either one mutable reference, or any number of immutable references
 2. References must always be valid
+
+## Crate Rules
+
+1. A package must have at least one crate
+2. A package can have at least zero library crates orn one library crate
+3. A package can have any number of binary crates
