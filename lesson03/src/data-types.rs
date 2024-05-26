@@ -144,6 +144,8 @@ fn main() {
     let small_num_02: i8 = -127;
     let big_num_02: i128 = -123456789012345678;
 
+    const SUBSSCRIBER_COUNT: u32 = 100_000;
+
     println!("small_num_01: {}", { small_num_01 });
     println!("big_num_01: {}", { big_num_01 });
     println!("small_num_02: {}", { small_num_02 });
@@ -217,6 +219,7 @@ fn main() {
 
     // ARRAYS
     let array = [1, 2, 3, 4, 5];
+    let byte = [0; 8];
     let first = array[0];
     let second = array[1];
     println!("first {}, second {}", first, second);
