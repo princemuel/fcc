@@ -23,8 +23,9 @@ fn main() {
         //     Ok(num) => num,
         //     Err(_) => continue,
         // };
+
         // using the 'turbofish' syntax
-        let guess = match guess.trim().parse::<i32>() {
+        let guess = match guess.trim().parse::<u32>() {
             Ok(num) => num,
             Err(_) => continue,
         };
@@ -32,8 +33,8 @@ fn main() {
         println!("You guessed: {guess}");
 
         match guess.cmp(&secret_number) {
-            Ordering::Less => println!("and it's too small!"),
-            Ordering::Greater => println!("and it's too big!"),
+            Ordering::Less => println!("but it's too small!"),
+            Ordering::Greater => println!("but it's too big!"),
             Ordering::Equal => {
                 println!("Hoorah! You win!");
                 break;

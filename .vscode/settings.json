@@ -11,7 +11,6 @@
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "dotenv.enableAutocloaking": false,
   "material-icon-theme.activeIconPack": "react_redux",
-
   "rust-analyzer.diagnostics.useRustcErrorCode": true,
   "rust-analyzer.completion.fullFunctionSignatures.enable": true,
   "rust-analyzer.completion.privateEditable.enable": true,
@@ -25,15 +24,16 @@
   "rust-analyzer.semanticHighlighting.punctuation.separate.macro.bang": true,
   "rust-analyzer.semanticHighlighting.punctuation.specialization.enable": true,
   "rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
-
   "window.autoDetectColorScheme": true,
   "workbench.productIconTheme": "Default",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "GitHub Dark Default",
-  "workbench.preferredLightColorTheme": "GitHub Light Default",
+  "workbench.preferredLightColorTheme": "Night Owl (No Italics)",
   "workbench.preferredDarkColorTheme": "GitHub Dark Default",
   "workbench.preferredHighContrastColorTheme": "GitHub Light High Contrast",
   "workbench.preferredHighContrastLightColorTheme": "GitHub Dark High Contrast",
   "workbench.tree.indent": 8,
-  "rust-analyzer.linkedProjects": ["./lesson07/Cargo.toml"]
+  "rust-analyzer.linkedProjects": [
+    "./lesson07/Cargo.toml"
+  ]
 }
