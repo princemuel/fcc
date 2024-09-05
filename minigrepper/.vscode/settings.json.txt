@@ -1,0 +1,27 @@
+{
+  "editor.tabSize": 2,
+  "editor.inlineSuggest.enabled": true,
+  "editor.wordWrap": "bounded",
+  "editor.wordWrapColumn": 96,
+  "json.validate.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports": "explicit",
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit"
+  },
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "rust-analyzer.diagnostics.useRustcErrorCode": true,
+  "rust-analyzer.check.command": "clippy",
+  "rust-analyzer.completion.fullFunctionSignatures.enable": true,
+  "rust-analyzer.completion.privateEditable.enable": true,
+  "rust-analyzer.inlayHints.bindingModeHints.enable": false,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "rust-analyzer.inlayHints.rangeExclusiveHints.enable": true,
+  "rust-analyzer.restartServerOnConfigChange": true,
+  "rust-analyzer.semanticHighlighting.operator.specialization.enable": true,
+  "rust-analyzer.semanticHighlighting.punctuation.enable": true,
+  "rust-analyzer.semanticHighlighting.punctuation.separate.macro.bang": true,
+  "rust-analyzer.semanticHighlighting.punctuation.specialization.enable": true,
+  "rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
+}
