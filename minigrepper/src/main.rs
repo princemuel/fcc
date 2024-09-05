@@ -1,9 +1,12 @@
-use std::{env, fs};
+use std::{env, fs, process};
 
 fn main() {
     let args = env::args().collect::<Vec<String>>();
 
-    let Config { query, filename } = parse_config(&args);
+    let Config { query, filename } = Config::new(&args).unwrap_or_else(|error| {
+        println!("Problem parsing arguments: {error}");
+        process::exit(1);
+    });
 
     println!("Searching for {query}");
     println!("In file {filename:?}");
@@ -19,9 +22,14 @@ pub struct Config {
     filename: String,
 }
 
-pub fn parse_config(args: &[String]) -> Config {
-    let query = args[1].clone();
-    let filename = args[2].clone();
+impl Config {
+    pub fn new(args: &[String]) -> Result<Config, &str> {
+        if args.len() < 3 {
+            return Err("not enough arguments");
+        }
 
-    Config { query, filename }
+        let query = args[1].clone();
+        let filename = args[2].clone();
+        Ok(Config { query, filename })
+    }
 }
