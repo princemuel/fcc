@@ -6,6 +6,22 @@ fn main() {
     let intensity = 10;
     let random_num = 7;
     generate_workout(intensity, random_num);
+
+    let x = 4;
+    let equal_to_x = |z| z == x;
+
+    let y = 4;
+
+    assert!(equal_to_x(y));
+
+    let x = vec![1, 2, 3];
+    // let equal_to_x = move |z| z == x;
+    // println!("can't use x here: {:?}", x);
+
+    let equal_to_x = |z| z == x;
+    let y = vec![1, 2, 3];
+
+    assert!(equal_to_x(y));
 }
 
 pub fn expensive_calculation(intensity: u16) -> u16 {
