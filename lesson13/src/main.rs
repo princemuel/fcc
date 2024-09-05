@@ -45,18 +45,18 @@ where
 pub fn generate_workout(intensity: u16, random_num: u16) {
     // let expensive_result = expensive_calculation(intensity);
 
-    let expensive_closure = |value| {
+    let mut cached_result = Memoizer::new(|value| {
         println!("calculating slowly...");
         sleep(Duration::from_secs(3));
         value
-    };
+    });
 
     if intensity < 25 {
-        println!("Today, go {} pushups", expensive_closure(intensity));
-        println!("Next, do {} situps", expensive_closure(intensity));
+        println!("Today, go {} pushups", cached_result.value(intensity));
+        println!("Next, do {} situps", cached_result.value(intensity));
     } else if random_num == 3 {
         println!("Take a break today. Remember to stay hydrated");
     } else {
-        println!("Today, run for {} minutes", expensive_closure(intensity));
+        println!("Today, run for {} minutes", cached_result.value(intensity));
     }
 }
