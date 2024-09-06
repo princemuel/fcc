@@ -2,9 +2,7 @@ use minigrepper::Config;
 use std::{env, process};
 
 fn main() {
-    let args = env::args().collect::<Vec<String>>();
-
-    let config = Config::new(&args).unwrap_or_else(|error| {
+    let config = Config::new(env::args()).unwrap_or_else(|error| {
         eprintln!("Problem parsing arguments: {error}");
         process::exit(1);
     });
