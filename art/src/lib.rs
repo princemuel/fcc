@@ -2,6 +2,10 @@
 //!
 //! A library form modeling artistic concepts
 
+pub use self::kinds::PrimaryColor;
+pub use self::kinds::SecondaryColor;
+pub use self::utils::mix;
+
 pub mod kinds {
     /// The primary colors according to the RYB color model
     pub enum PrimaryColor {
@@ -22,7 +26,7 @@ pub mod utils {
 
     /// Combines two primary olors in equal amounts
     /// to create a secondary color
-    pub fn mix(a: PrimaryColor, b: PrimaryColor) -> SecondaryColor {
+    pub fn mix(_a: PrimaryColor, _b: PrimaryColor) -> SecondaryColor {
         // --snip--
         // ANCHOR_END: here
         SecondaryColor::Orange
