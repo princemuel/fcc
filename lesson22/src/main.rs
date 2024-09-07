@@ -1,3 +1,5 @@
+use std::ops::Deref;
+
 pub enum List {
     Cons(i32, Box<List>),
     Nil,
@@ -19,7 +21,14 @@ impl<T> Deref for MyBox<T> {
     }
 }
 
-use std::ops::Deref;
+struct CustomSmartPointer {
+    data: String,
+}
+impl Drop for CustomSmartPointer {
+    fn drop(&mut self) {
+        println!("Dropping CustomSmartPointer with data `{}`!", self.data);
+    }
+}
 
 use List::{Cons, Nil};
 
@@ -46,6 +55,15 @@ fn main() {
 
     let m = MyBox::new(String::from("Rust"));
     hello(&m); // hello(&(*m)[..]);
+               //
+    let c = CustomSmartPointer { data: String::from("my stuff") };
+
+    let d = CustomSmartPointer { data: String::from("other stuff") };
+
+    println!("CustomSmartPointers created");
+
+    drop(c);
+    println!("CustomSmartPointers dropped before the end of main.");
 }
 
 fn hello(name: &str) {
