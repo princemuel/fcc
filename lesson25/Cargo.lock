@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "lesson22"
+name = "gui_lib"
 version = "0.1.0"
