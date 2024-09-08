@@ -28,12 +28,13 @@ impl MeanCollection {
     }
 }
 
-use gui_lib::{Button, Draw, Screen};
+use project::{BlogPost, Post};
+use project::{Button, Draw, Screen};
 
 struct SelectBox {
-    width: u8,
-    height: u8,
-    options: Vec<String>,
+    pub width: u8,
+    pub height: u8,
+    pub options: Vec<String>,
 }
 impl Draw for SelectBox {
     fn draw(&self) {}
@@ -60,4 +61,24 @@ fn main() {
     };
 
     screen.run();
+
+    let mut post = Post::new();
+
+    post.add_text("I ate a salad for lunch today");
+    assert_eq!("", post.content());
+
+    post.request_review();
+    assert_eq!("", post.content());
+
+    post.approve();
+    assert_eq!("I ate a salad for lunch today", post.content());
+
+    let mut post = BlogPost::new();
+
+    post.add_text("I ate a salad for lunch today");
+
+    let post = post.request_review();
+
+    let post = post.approve();
+    assert_eq!("I ate a salad for lunch today", post.content());
 }

@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "gui_lib"
+name = "project"
 version = "0.1.0"
