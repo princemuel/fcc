@@ -1,5 +1,11 @@
-fn main() {
-    let v1 = vec![1, 2, 3];
+use hello_macro::HelloMacro;
+use hello_macro_derive::HelloMacro;
 
-    let v2 = vec!["a", "b", "c"];
+#[derive(HelloMacro)]
+struct Pancakes;
+
+fn main() {
+    Pancakes::hello_macro();
 }
+
+// let sql = sql![]
