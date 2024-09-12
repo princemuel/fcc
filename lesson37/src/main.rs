@@ -1,4 +1,4 @@
-use std::fmt::{self, write, Display};
+use std::fmt;
 use std::ops::Add;
 
 fn main() {
@@ -14,7 +14,39 @@ fn main() {
     let w = Wrapper(vec![String::from("hello"), String::from("world")]);
 
     println!("w = {w}");
+
+    type Thunk = Box<dyn Fn() + Send + 'static>;
+
+    let _f: Thunk = Box::new(|| println!("hi"));
+
+    // fn bar() -> ! {}
+
+    let list_of_nums = vec![1, 2, 3];
+    let list_of_strings: Vec<String> =
+        list_of_nums.iter().map(|i| i.to_string()).collect();
+    let list_of_strings: Vec<String> =
+        list_of_nums.iter().map(ToString::to_string).collect();
+
+    enum Status {
+        Value(u32),
+        Stop,
+    }
+
+    let list_of_statuses: Vec<Status> = (0u32..20).map(Status::Value).collect();
+
+    fn returns_closure() -> impl Fn(i32) -> i32 {
+        |x| x + 1
+    }
+    fn closures(a: i32) -> Box<dyn Fn(i32) -> i32> {
+        if a > 0 {
+            Box::new(move |b| a + b)
+        } else {
+            Box::new(move |b| a - b)
+        }
+    }
 }
+
+fn generic<T: ?Sized>(t: &T) {}
 
 // pub trait Iterator {
 //     type Item;
@@ -144,7 +176,16 @@ impl fmt::Display for Wrapper {
         write!(f, "[{}]", self.0.join(", "))
     }
 }
+fn do_twice(f: fn(i32) -> i32, arg: i32) -> i32 {
+    f(arg) + f(arg)
+}
 
+fn do_two_times<T>(f: T, arg: i32) -> i32
+where
+    T: Fn(i32) -> i32,
+{
+    f(arg) + f(arg)
+}
 #[cfg(test)]
 mod tests {
     use super::*;
