@@ -1,8 +1,0 @@
-[package]
-name = "princemuel_art"
-version = "0.1.0"
-edition = "2021"
-authors = ['princemuel']
-license = "MIT"
-description = "Just a dummy crate to know how to publish a crate on crates.io"
-[dependencies]
