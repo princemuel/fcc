@@ -1,1 +1,1 @@
-# RCC - Tiny Compiler for C written in Rust
+# RCC - Tiny Compiler for C in Rust
