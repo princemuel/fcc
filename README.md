@@ -6,21 +6,7 @@ This implementation is a work in progress, so please fork with caution!
 
 [writing-c-compiler]: https://nostarch.com/writing-c-compiler
 
-## Goals by Chapter
-
-- [ ] Ch 1–3: Lexer, parser, expression handling
-
-- [ ] Ch 4–5: Statement parsing, functions
-
-- [ ] Ch 6–7: Locals, stack management
-
-- [ ] Ch 8–10: Control flow, conditionals, loops
-
-- [ ] Ch 11–12: Pointers, arrays, structs
-
-- [ ] Ch 13+: Codegen optimizations, calling conventions, ABI compliance
-
-## 🦀 Prerequisites
+## Prerequisites
 
 You’ll need:
 
@@ -31,20 +17,29 @@ You’ll need:
 
 If you’re new to Rust, install the toolchain using [rustup](https://rustup.rs):
 
-```console
+```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 Confirm installation:
 
-```console
+```sh
 rustc --version
 cargo --version
 ```
 
+### Goals by Chapter
+
+- [ ] Ch 1–3: Lexer, parser, expression handling
+- [ ] Ch 4–5: Statement parsing, functions
+- [ ] Ch 6–7: Locals, stack management
+- [ ] Ch 8–10: Control flow, conditionals, loops
+- [ ] Ch 11–12: Pointers, arrays, structs
+- [ ] Ch 13+: Codegen optimizations, calling conventions, ABI compliance
+
 ## Building FCC
 
-```console
+```sh
 git clone https://github.com/princemuel/fcc.git # check out the repo
 cd fcc
 cargo build --release
@@ -68,19 +63,22 @@ cargo test
 
 For compiler verification against the official [Writing a C Compiler Test Suite][test-suite]:
 
-```console
+```sh
 git clone https://github.com/nlsandler/writing-a-c-compiler-tests.git
 cd writing-a-c-compiler-tests
+```
+
+```sh
 ./test_compiler --check-setup # make sure you meet all the system requirements
 ```
 
-```console
+```sh
 ./test_compiler ~/path/to/fcc/target/release -- --chapter 4
 ```
 
 [test-suite]: https://github.com/nlsandler/writing-a-c-compiler-tests
 
-### Usage Example
+## Usage
 
 Assume we have this source file at ~/hello.c:
 
@@ -102,7 +100,7 @@ Hello, world!
 
 ### Common Tasks
 
-```console
+```sh
 cargo run -- examples/return_42.c
 ```
 
@@ -121,5 +119,5 @@ cargo run -- --emit-llvm examples/fib.c
 ## License
 
 MIT License © 2025
+
 Based on the book _Writing a C Compiler_ by Nora Sandler.
-Ported and adapted to Rust for educational purposes.
