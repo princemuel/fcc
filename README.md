@@ -1,4 +1,4 @@
-# The Faux-C Compiler
+# The Faux C Compiler
 
 This is the reference implementation for the book [Writing a C Compiler][writing-c-compiler], a hands-on guide to writing your own compiler for a substantial subset of the C programming language.
 
