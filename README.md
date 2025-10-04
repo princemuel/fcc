@@ -1,6 +1,6 @@
 # The Faux C Compiler
 
-This is the reference implementation for the book [Writing a C Compiler][writing-c-compiler], a hands-on guide to writing your own compiler for a substantial subset of the C programming language.
+This is a reference implementation for the book [Writing a C Compiler][writing-c-compiler], a hands-on guide to writing your own compiler for a substantial subset of the C programming language.
 
 This implementation is a work in progress, so please fork with caution!
 
@@ -28,7 +28,7 @@ rustc --version
 cargo --version
 ```
 
-### Goals by Chapter
+## Features
 
 - [ ] Ch 1–3: Lexer, parser, expression handling
 - [ ] Ch 4–5: Statement parsing, functions
@@ -39,15 +39,15 @@ cargo --version
 
 ## Building FCC
 
+This puts the executable at `target/release/fcc`
+
 ```sh
 git clone https://github.com/princemuel/fcc.git # check out the repo
 cd fcc
 cargo build --release
 ```
 
-This puts the executable at `target/release/fcc`.
-
-For a faster iteration:
+For a faster iteration
 
 ```sh
 cargo run -- path/to/source.c
@@ -55,13 +55,13 @@ cargo run -- path/to/source.c
 
 ## Running the Tests
 
-FCC uses Rust’s built-in test framework for unit and integration tests. There are a handful of unit tests, can be run with this command:
+FCC uses Rust’s built-in test framework for unit and integration tests. There are a handful of unit tests, can be run with this command
 
 ```sh
 cargo test
 ```
 
-For compiler verification against the official [Writing a C Compiler Test Suite][test-suite]:
+For compiler verification against the official [Writing a C Compiler Test Suite][test-suite]
 
 ```sh
 git clone https://github.com/nlsandler/writing-a-c-compiler-tests.git
@@ -80,7 +80,7 @@ cd writing-a-c-compiler-tests
 
 ## Usage
 
-Assume we have this source file at ~/hello.c:
+Assume we have this source file at ~/hello.c
 
 ```c
 int puts(char *c);
@@ -90,7 +90,7 @@ int main(void) {
 }
 ```
 
-To compile and run it:
+To compile and run it
 
 ```console
 $ target/release/fcc ~/hello.c -o ~/hello
@@ -104,13 +104,13 @@ Hello, world!
 cargo run -- examples/return_42.c
 ```
 
-If you use the LLVM backend:
+If you use the LLVM backend
 
 ```sh
 cargo run --release --backend=llvm examples/hello.c
 ```
 
-To emit LLVM IR (if enabled) instead of machine code:
+To emit LLVM IR (if enabled) instead of machine code
 
 ```sh
 cargo run -- --emit-llvm examples/fib.c
@@ -120,4 +120,4 @@ cargo run -- --emit-llvm examples/fib.c
 
 MIT License © 2025
 
-Based on the book _Writing a C Compiler_ by Nora Sandler.
+Based on the book [_Writing a C Compiler_][writing-c-compiler] by Nora Sandler.
