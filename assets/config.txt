@@ -1,0 +1,99 @@
+# .cargo/config.toml
+
+# === Build Settings ===
+[build]
+  # Parallel codegen units for faster builds
+  jobs = 4 # Adjust based on your CPU cores
+  # Use mold linker if available (faster than lld)
+  # rustflags = ["-C", "link-arg=-fuse-ld=mold"]
+
+# === Target-specific configurations ===
+# On Windows
+# ```
+# cargo install -f cargo-binutils
+# rustup component add llvm-tools-preview
+# ```
+# Windows MSVC
+[target.x86_64-pc-windows-msvc]
+  rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+
+# Windows GNU
+[target.x86_64-pc-windows-gnu]
+  rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+
+# On Linux:
+# ```
+# - Ubuntu, `sudo apt-get install lld clang` # or gcc gdb
+# - Arch, `sudo pacman -S lld clang` # or gcc gdb
+# Mold linker is faster than both lld and gcc `sudo pacman -S mold`
+# rustflags = ["-C", "link-arg=-fuse-ld=mold"]
+# ```
+# Linux x86_64
+[target.x86_64-unknown-linux-gnu]
+  # rustflags = ["-C", "linker=clang", "-C", "link-arg=-fuse-ld=lld"]
+  rustflags = [
+    "-C",
+    "linker=gcc",
+    "-C",
+    "debuginfo=2",         # Full debug info
+    "-C",
+    "strip=none",          # Don't strip symbols
+    "-C",
+    "split-debuginfo=off", # Keep debug info in binary
+    # Improve GDB experience
+    "-C",
+    "force-frame-pointers=yes",
+    # Optional: CPU optimizations
+    # "-C", "target-cpu=native",
+  ]
+
+# Linux ARM64 (if you need it)
+[target.aarch64-unknown-linux-gnu]
+  rustflags = ["-C", "linker=gcc"]
+
+# On MacOS,
+# ```
+# brew install lld` # follow the steps from `brew info lld`
+# ```
+# macOS x86_64
+[target.x86_64-apple-darwin]
+  rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+
+# macOS ARM64
+[target.aarch64-apple-darwin]
+  rustflags = ["-C", "link-arg=-fuse-ld=/opt/homebrew/opt/lld/bin/ld64.lld"]
+
+# === Profile Configurations ===
+[profile.dev]
+  debug = true
+  opt-level = 0
+  overflow-checks = true
+  codegen-units = 4       # LLVM multiple passes at once
+  split-debuginfo = "off" # Better for GDB
+
+[profile.release]
+  opt-level = 3
+  lto = "thin"
+  codegen-units = 1 # better optimization
+  strip = false     # Keep symbols for profiling
+
+[profile.release-with-debug]
+  inherits = "release"
+  debug = true
+
+  # Fast compile times for development
+  [profile.dev.package."*"]
+    opt-level = 0
+
+  # Optimize dependencies even in debug mode
+  [profile.dev.build-override]
+    opt-level = 3
+
+# === Aliases ===
+[alias]
+  # Useful shortcuts
+  br = "build --release"
+  rr = "run --release"
+  t = "test"
+  c = "check"
+  cl = "clean"

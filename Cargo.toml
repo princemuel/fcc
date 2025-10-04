@@ -1,6 +1,22 @@
 [package]
-name = "rustcc"
-version = "0.1.0"
-edition = "2024"
+  name = "fcc"
+  version = "0.1.0"
+  authors = ["Prince Muel <68931805+princemuel@users.noreply.github.com>"]
+  edition = "2024"
+
+  readme = "README.md"
+  license-file = "LICENSE.txt"
+
+  homepage = "https://github.com/princemuel/fcc#readme"
+  repository = "https://github.com/princemuel/fcc"
+
+  description = "`fcc` is the reference implementation for the book *Writing a C Compiler*. It's a compiler for a subset of C, targeting x86-64 assembly."
 
 [dependencies]
+  clap = { version = "4", features = ["derive"] }
+  error-stack = "0.6"
+  logos = "0.15"
+  thiserror = "2"
+
+[dev-dependencies]
+  assert_cmd = "2"
